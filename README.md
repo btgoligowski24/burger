@@ -7,7 +7,7 @@ This app is a continuation of me learning express.js. It reinforces CRU requests
 The app is organized by using standard MVC format.
 
 ## How to Use the App
-1. Navigate to 
+1. Navigate to https://mysterious-retreat-22990.herokuapp.com/
 1. You have the following options:
     * Click the "DEVOUR IT" button to eat the burger, moving it to the eaten column.
     * Click the "MAKE ME ANOTHER" button to create another of the same burger, putting it in the available column.
