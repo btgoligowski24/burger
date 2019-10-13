@@ -8,15 +8,15 @@ if (sequelize) {
         var config = sequelize.connectionManager.config;
         console.log('sequelize-heroku: Connected to '+config.host+' as '+config.username+'.');
         
-        sequelize.query('SELECT 1+1 as test').then( function(res) {
+        sequelize.query('SELECT 1+1 as test').then(function(res) {
             console.log('1+1='+res[0][0].test);
+            if (process.env.JAWSDB_URL) {
+                connection = mysql.createConnection(process.env.JAWSDB_URL);
+            } else {
+                connection = mysql.createConnection(credentials.mySQL);
+            } 
         });
-
-        if (process.env.JAWSDB_URL) {
-            connection = mysql.createConnection(process.env.JAWSDB_URL);
-        } else {
-            connection = mysql.createConnection(credentials.mySQL);
-        }        
+       
     }).catch( function(err) {
         var config = sequelize.connectionManager.config;
         console.log('Sequelize: Error connecting '+config.host+' as '+config.user+': '+err);
