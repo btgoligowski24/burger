@@ -1,7 +1,6 @@
-<li class="list-group-item list-group-item-dark d-flex">
-	<span class="align-self-center">{{burger_name}}</span>
-
-	<button class="change-devoured btn btn-secondary ml-auto" data-id="{{id}}" data-devoured="{{sleep}}">
-		{{#if devoured}}DEVOUR IT!{{/if}}
+<li class="list-group-item list-group-item-dark d-flex font-weight-bold">
+	<span class="align-self-center">{{id}}. {{burger_name}}</span>
+	<button class="updateBurger btn btn-secondary ml-auto font-weight-bold" data-id="{{id}}" data-newDevouredState="{{devoured}}" data-burgerName="{{burger_name}}">
+		{{#if devoured}}DEVOUR IT!{{else}}MAKE ME ANOTHER!{{/if}}
 	</button>
 </li>
