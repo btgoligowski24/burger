@@ -3,6 +3,14 @@ const burger = require("../models/burger");
 
 const router = express.Router();
 
-// need to create routes here
+router.get("/", (req, res) => {
+    burger.selectAll(function(data) {
+        const handlebarsObj = {
+            burgers: data
+        };
+        console.log(handlebarsObj);
+        res.render("index", handlebarsObj);
+    })
+})
 
 module.exports = router;
