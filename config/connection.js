@@ -17,7 +17,7 @@ if (sequelize) {
         } else {
             connection = mysql.createConnection(credentials.mySQL);
         }        
-        
+        console.log("test");
     }).catch( function(err) {
         var config = sequelize.connectionManager.config;
         console.log('Sequelize: Error connecting '+config.host+' as '+config.user+': '+err);
