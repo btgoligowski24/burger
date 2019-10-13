@@ -15,7 +15,6 @@ if (sequelize) {
             } else {
                 connection = mysql.createConnection(credentials.mySQL);
             }
-            module.exports = connection;
         });
        
     }).catch( function(err) {
@@ -25,3 +24,5 @@ if (sequelize) {
 } else {
     console.log('No environnement variable found.');
 }
+
+module.exports = connection;
