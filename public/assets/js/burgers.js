@@ -2,16 +2,15 @@
 $(document).ready(function () {
     $("#availBurgers .updateBurger").on("click", function (event) {
         const id = $(this).data("id");
-        const newDevouredVal = $(this).data("newDevouredState");
-
-        const newDevouredState = {
+        const newDevouredVal = $(this).data("newdevouredstate");
+        const newDevouredObj = {
             devoured: newDevouredVal
         };
 
         // Send the PUT request.
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: newDevouredState
+            data: newDevouredObj
         }).then(
             function () {
                 location.reload();
@@ -25,7 +24,7 @@ $(document).ready(function () {
 
         const newBurger = {
             burger_name: $("#burgerName").val().trim(),
-            devoured: "false"
+            devoured: 0
         };
 
         // Send the POST request.
@@ -42,8 +41,8 @@ $(document).ready(function () {
     // Creates another burger when the button in this card is clicked
     $("#eatenBurgers .updateBurger").on("click", function (event) {
         const newBurger = {
-            burger_name: $(this).data("burgerName"),
-            devoured: "false"
+            burger_name: $(this).data("burgername"),
+            devoured: 0
         };
 
         // Send the POST request.
