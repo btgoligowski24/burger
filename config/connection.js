@@ -14,7 +14,8 @@ if (sequelize) {
                 connection = mysql.createConnection(process.env.JAWSDB_URL);
             } else {
                 connection = mysql.createConnection(credentials.mySQL);
-            } 
+            }
+            module.exports = connection;
         });
        
     }).catch( function(err) {
@@ -24,5 +25,3 @@ if (sequelize) {
 } else {
     console.log('No environnement variable found.');
 }
-
-module.exports = connection;
