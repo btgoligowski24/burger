@@ -10,12 +10,6 @@ if (sequelize) {
         
         sequelize.query('SELECT 1+1 as test').then(function(res) {
             console.log('1+1='+res[0][0].test);
-            if (process.env.JAWSDB_URL) {
-                connection = mysql.createConnection(process.env.JAWSDB_URL);
-            } else {
-                connection = mysql.createConnection(credentials.mySQL);
-            }
-            module.exports = connection;
         });
        
     }).catch( function(err) {
@@ -26,3 +20,10 @@ if (sequelize) {
     console.log('No environnement variable found.');
 }
 
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    connection = mysql.createConnection(credentials.mySQL);
+}
+
+module.exports = connection;
