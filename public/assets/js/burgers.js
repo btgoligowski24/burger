@@ -21,21 +21,32 @@ $(document).ready(function () {
     $(".create-form").on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
+        let validForm = true;
+        const burgerName = $("#burgerName").val().trim();
 
-        const newBurger = {
-            burger_name: $("#burgerName").val().trim(),
-            devoured: 0
-        };
-
-        // Send the POST request.
-        $.ajax("/api/burgers", {
-            type: "POST",
-            data: newBurger
-        }).then(
-            function () {
-                location.reload();
-            }
-        );
+        if (!burgerName) {
+            validForm = false;
+        }
+        
+        if (validForm) {
+            const newBurger = {
+                burger_name: burgerName,
+                devoured: 0
+            };
+    
+            // Send the POST request.
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: newBurger
+            }).then(
+                function () {
+                    location.reload();
+                }
+            );
+        } else {
+            alert("You cannot leave the burger name blank!");
+        }
+       
     });
 
     // Creates another burger when the button in this card is clicked
