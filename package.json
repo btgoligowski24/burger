@@ -21,7 +21,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^5.2.1",
-    "express-handlebars": "^8.0.6",
+    "express-handlebars": "^9.0.4",
     "handlebars": "^4.7.6",
     "minimist": "^1.2.5",
     "mysql": "^2.18.1",
